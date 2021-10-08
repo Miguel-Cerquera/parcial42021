@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <title>Document</title>
+    <style>
+    .ji
+    {
+        position: absolute;
+        top: 450px;
+        left: 540px;
+        width: 300px;
+        height: 150px;
+        background: blue;
+        border: solid black 5px;
+        font-size: 100px;
+        font-family: sans-serif;
+        font-weight: 100;
+        color: white;
+        
+    } 
+    #marca
+    {
+        position: absolute;
+        top: 50px;
+        left: 540px;
+        width: 300px;
+        height: 150px;
+        background: blue;
+        border: solid black 5px;
+        font-size: 50px;
+        font-family: sans-serif;
+        font-weight: 100;
+        color: white;
+    }
+    .piedra
+    {
+        position: absolute;
+        top: 235px;
+        left: 350px;
+        width: 175px;
+        height: 175px;
+        background: gray;
+        border: solid black 5px;
+        background-repeat: no-repeat;
+    }
+    .papel
+    {
+        position: absolute;
+        top: 235px;
+        left: 600px;
+        width: 175px;
+        height: 175px;
+        background: gray;
+        border: solid black 5px;
+        background-repeat: no-repeat;
+    }
+    .tijera
+    {
+        position: absolute;
+        top: 235px;
+        left: 850px;
+        width: 175px;
+        height: 175px;
+        background: gray;
+        border: solid black 5px;
+        background-repeat: no-repeat;
+    }
+    #juga
+    {
+        position: absolute;
+        top: 25px;
+        left: 345px;
+        width: 175px;
+        height: 175px;
+        background: gray;
+        border: solid black 5px;
+        background-repeat: no-repeat;
+    }
+    #maq
+    {
+        position: absolute;
+        top: 25px;
+        left: 860px;
+        width: 175px;
+        height: 175px;
+        background: gray;
+        border: solid black 5px;
+        background-repeat: no-repeat;
+    }
+    #conti
+    {
+        position: absolute;
+        top: 450px;
+        left: 540px;
+        width: 300px;
+        height: 150px;
+        background: blue;
+        border: solid black 5px;
+        font-size: 50px;
+        font-family: sans-serif;
+        font-weight: 100;
+        color: white;
+    }
+    #puntcpu
+    {
+        position: absolute;
+        left: 250px;
+        top:60px;
+        font-size: 50px;
+        font-family: sans-serif;
+        font-weight: 100;
+        color: white;
+    }
+    #puntj
+    {
+        position: absolute;
+        left: 20px;
+        top:60px;
+        font-size: 50px;
+        font-family: sans-serif;
+        font-weight: 100;
+        color: white;
+    }
+    #cr
+    {
+    position: absolute;
+    top: 25px;
+    left: 300px;
+    width: 750px;
+    height: 600px;
+    background: blue;
+    border: solid black 5px;
+    font-size: 50px;
+    font-family: sans-serif;
+    font-weight: 100;
+    color: white;
+    }
+.marcador
+{
+        position: absolute;
+        left: 20px;
+        top:60px;
+        font-size: 50px;
+        font-family: sans-serif;
+        font-weight: 100;
+        color: white;
+}
+#ganador
+{
+        position: absolute;
+        left: 20px;
+        top:150px;
+        font-size: 50px;
+        font-family: sans-serif;
+        font-weight: 100;
+        color: white; 
+}
+#mr
+{
+   position:absolute;
+   left: 5px; 
+}
+    </style>
+</head>
+<body>
+    <div></div>
+    <div class="ji" id="inicio" onclick="jugar()"style="top:250px"><div style=position:absolute;left:20px;top:12px;>Jugar</div></div>
+    <div id="marca"style="display:none;">
+        <div id="mr">MARCADOR</div>
+        <div id="punt"><div id="puntj">0</div>
+        <div id="dos"style="position: absolute;left: 140px;top:60px;">:</div>
+        <div id="puntcpu">0</div></div></div>
+        <div class="piedra" id="pied"style="display:none;"onclick="piedra()"><img src="piedra.png" style="position: absolute;left: 22px;top:40px"></div>
+        <div class="papel" id="pap"style="display:none;" onclick="papel()"><img src="papel.png" style="position:absolute;left:40px;top:22px;"></div>
+        <div class="tijera" id="ti"style="display:none;" onclick="tijera()"><img src="tijera.png" style="position:absolute;left:25px;top:38px;"></div>
+
+
+    <div class="ju"id="juga"style="display:none;"><div id="jdr" style="position: absolute;left:20px;top:20px;height: 175px;width:175px;background-repeat:no-repeat;"></div></div>
+    <div class="cp"id="maq"style="display:none;"><div id="mqn"style="position:absolute;left:20px;top:20px;height: 175px;width:175px;background-repeat:no-repeat;"></div></div>
+    <div id="conti"style="display:none;background:gray" onclick="continua()"><div style="position: absolute;top:45px">CONTINUAR</div></div>
+
+
+    <div id="cr"style="display:none;">
+        <div class="marcador">RESULTADO:</div>
+        <div id="ganador"></div>
+    </div>
+    <div class="ji" id="fin"style="display:none;background:gray;"onclick="meninicio()"><div style="position: absolute;left: 28px;top:20px;">Inicio</div></div>
+</body>
+<script>
+    x=0;
+    function meninicio()
+    {
+        cr.style.display="none";
+        fin.style.display="none";
+        inicio.style.display="block";
+    }
+    function jugar()
+    {
+        marca.style.display="block";
+        pied.style.display="block";
+        pap.style.display="block";
+        ti.style.display="block";
+        inicio.style.display="none";
+        puntcpu.innerHTML="0";
+        puntj.innerHTML="0";
+        x=0;
+        marcm=0;
+        marcj=0;
+    }
+    function continua()
+    {
+        mr.innerHTML="MARCADOR";
+        if(x<=3)
+        {
+        juga.style.display="none";
+        maq.style.display="none";
+        conti.style.display="none"
+        pied.style.display="block";
+        pap.style.display="block";
+        ti.style.display="block";
+        marca.style.left=540+"px";
+        marca.style.top=50+"px";
+        marca.style.width=300+"px";
+        marca.style.height=150+"px";
+        mr.style.left=3+"px";
+        puntj.style.left=20+"px";
+        puntcpu.style.left=250+"px";
+        dos.style.left=140+"px";
+        }
+        if(x==3)
+        {
+        juga.style.display="none";
+        maq.style.display="none";
+        conti.style.display="none"
+        pied.style.display="none";
+        pap.style.display="none";
+        ti.style.display="none";
+        marca.style.display="none";
+        cr.style.display="block";
+        fin.style.display="block"
+        maquina=Number(puntcpu.innerHTML);
+        jugador=Number(puntj.innerHTML);
+        if(maquina<jugador)
+        {
+            ganador.innerHTML="EL JUGADOR GANA POR:"+jugador+" A "+maquina;
+        }
+        if(jugador<maquina)
+        {
+            ganador.innerHTML="LA MAQUINA GANA POR:"+maquina+" A "+jugador;
+        }
+        if(maquina==jugador)
+        {
+            ganador.innerHTML="EMPATE "+jugador+" A "+maquina;
+        }
+        }
+    }
+    function compar()
+    {
+        marcj=Number(puntj.innerHTML);
+        marcm=Number(puntcpu.innerHTML);
+        x=x+1;
+        if(x<=3)
+        {
+        marca.style.left=315+"px";
+        marca.style.top=10+"px";
+        marca.style.width=750+"px";
+        marca.style.height=600+"px";
+        mr.style.left=260+"px";
+        puntj.style.left=240+"px";
+        puntcpu.style.left=475+"px";
+        dos.style.left=370+"px";
+        juga.style.display="block";
+        maq.style.display="block";
+        conti.style.display="block"
+        pied.style.display="none";
+        pap.style.display="none";
+        ti.style.display="none";
+        if(j=="piedra")
+        {
+            jdr.style.backgroundImage="url(piedra.png)";
+            cpu=Math.floor((Math.random() * (4-1))+1);
+        if(cpu==1)
+        {
+            mqn.style.backgroundImage="url(piedra.png)";
+            mr.innerHTML="EMPATE";
+        }
+        if(cpu==2)
+        {
+            mqn.style.backgroundImage="url(papel.png)";
+            mr.innerHTML="PERDISTE";
+            puntcpu.innerHTML=marcm+1;
+
+        }
+        if(cpu==3)
+        {
+            mqn.style.backgroundImage="url(tijera.png)";
+            mr.innerHTML="GANASTE";
+            puntj.innerHTML=marcj+1;
+        }
+        }
+        if(j=="papel")
+        {
+            jdr.style.backgroundImage="url(papel.png)";
+            cpu=Math.floor((Math.random() * (4-1))+1);
+            if(cpu==1)
+            {
+                mqn.style.backgroundImage="url(piedra.png)";
+                mr.innerHTML="GANASTE";
+                puntj.innerHTML=marcj+1;
+            }
+            if(cpu==2)
+            {
+                mqn.style.backgroundImage="url(papel.png)";
+                mr.innerHTML="EMPATE";
+            }
+            if(cpu==3)
+            {
+                mqn.style.backgroundImage="url(tijera.png)";
+                mr.innerHTML="PERDISTE";
+                puntcpu.innerHTML=marcm+1;
+            }
+        }
+        if(j=="tijera")
+        { 
+            jdr.style.backgroundImage="url(tijera.png)";
+            cpu=Math.floor((Math.random() * (4-1))+1);
+            
+            if(cpu==1)
+            {
+                mqn.style.backgroundImage="url(piedra.png)";
+                mr.innerHTML="PERDISTE";
+                puntcpu.innerHTML=marcm+1;
+            }
+            if(cpu==2)
+            {
+                mqn.style.backgroundImage="url(papel.png)";
+                mr.innerHTML="GANASTE";
+                puntj.innerHTML=marcj+1;
+            }
+            if(cpu==3)
+            {
+                mqn.style.backgroundImage="url(tijera.png)";
+                mr.innerHTML="EMPATE";
+            }
+        }
+    }
+    }
+    function piedra()
+    {
+        j="piedra";
+        setTimeout(compar,100)
+    }
+    function papel()
+    {
+        j="papel";
+        setTimeout(compar,100)
+    }
+    function tijera()
+    {
+        j="tijera";
+        setTimeout(compar,100);
+    }
+    function elecpu()
+    {
+        cpu=Math.floor((Math.random() * (4-1))+1);
+    }
+</script>
+</html>
